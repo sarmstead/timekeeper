@@ -50,5 +50,5 @@ Temporary Items
 .apdisk
 
 # Deployment instructions directory
-/.deployment/
+/src/old/.deployment/
 
