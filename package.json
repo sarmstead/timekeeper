@@ -1,5 +1,6 @@
 {
   "name": "timekeeper",
+  "homepage": "https://sunjayarmstead.com/apps/timekeeper",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
