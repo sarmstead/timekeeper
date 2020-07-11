@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Time Keeper App</title>
+        <link href="assets/style.css" type="text/css" rel="stylesheet">
+        <link href="assets/reset.css" type="text/css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="assets/favicon.png">
+        <script src="assets/app.js" async></script>
+    </head>
+
+    <body>
+        <main>
+            <section class="logo">
+                <h1>THE TIME KEEPER</h1>
+                <hr>
+            </section>
+            <section class="form-main">
+                <form>
+                    <label for="hours">Hours</label>
+                        <input type="number" name="hours" id="hours" required>
+                    <label for="minutes">Minutes</label>
+                        <input type="number" name="minutes" id="minutes" required>
+                    <label for="seconds">Seconds</label>
+                        <input type="number" name="seconds" id="seconds" required>
+                    <label for="rate">Hourly Rate ($)</label>
+                        <input type="number" name="rate" id="rate" required>
+                    <label for="client">Client</label>
+                        <input type="text" name="client" id="client" required>
+                </form>
+            </section>
+            
+            <section class="form-buttons">
+                <button id="submit">Calculate</button>
+                <button id="reset">Reset</button>
+            </section>
+            
+            <section class="calculate">
+                <p id="calculateMsg"></p>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+Deployment schedule:
+1. Create a development branch on LOCAL machine
+	a. Add and commit the changes through Git.
+	b. Push changes from dev branch to GitHub
+	c. If changes are approved, merge dev branch on GitHub to master branch
+2. Fetch changes from GitHub and merge with LOCAL master branch
+	a. $ git fetch remotename (# Fetches updates made to a remote repository)
+	b. $ git merge remotename/branchname (# Merges updates made online with your local work)
+	c. A shortcut to complete steps a. and b. is to conduct a git pull request ($ git pull remotename branchname [# Grabs online updates and merges them with your local work])
+3. At this point, the changes are ready to be pushed to the live site.
+	a. Use git push remotename to push changes from the LOCAL machine to the SERVER
+
+References
+- https://gist.github.com/Nilpo/8ed5e44be00d6cf21f22
+- https://docs.github.com/en/github/using-git/getting-changes-from-a-remote-repository 
