@@ -1,33 +1,41 @@
 import React from 'react';
 import './Calculator.css';
 
-const submit = document.getElementById('submit');
+class CalculatorButtonsSubmit extends React.Component {
+    render() {
+        return (<button id="submit" onClick={this.props.onClick}>Calculate</button>);
+    }
+}
 
-const reset = document.getElementById('reset');
-
-const submitOnClick = () => {
-    let hours = document.getElementById('hours').value;
-    let mins = document.getElementById('minutes').value;
-    let secs = document.getElementById('seconds').value;
-    let rate = document.getElementById('rate').value;
-    let client = document.getElementById('client').value;
-    const hrAmt = hours * rate;
-    const minAmt = (rate * mins) / 60;
-    const secAmt = (rate * secs) / 3600;
-    const total = (hrAmt + minAmt + secAmt).toFixed(2);
-    document.getElementById('calculateMsg').innerHTML = `Please bill ${client} $${total}.`;
-};
-
-const resetOnClick = () => {
-    document.getElementById('hours').value = '';
-    document.getElementById('minutes').value = '';
-    document.getElementById('seconds').value = '';
-    document.getElementById('rate').value = '';
-    document.getElementById('client').value = '';
-    document.getElementById('calculateMsg').innerHTML = '';
-};
+class CalculatorButtonsReset extends React.Component {
+    render() {
+        return (<button id="reset" onClick={this.props.onClick}>Reset</button>);
+    }
+}
 
 class Calculator extends React.Component {
+    handleReset() {
+        document.getElementById('hours').value = '';
+        document.getElementById('minutes').value = '';
+        document.getElementById('seconds').value = '';
+        document.getElementById('rate').value = '';
+        document.getElementById('client').value = '';
+        document.getElementById('calculateMsg').innerHTML = '';
+    }
+
+    handleSubmit() {
+        let hours = document.getElementById('hours').value;
+        let mins = document.getElementById('minutes').value;
+        let secs = document.getElementById('seconds').value;
+        let rate = document.getElementById('rate').value;
+        let client = document.getElementById('client').value;
+        const hrAmt = hours * rate;
+        const minAmt = (rate * mins) / 60;
+        const secAmt = (rate * secs) / 3600;
+        let total = (hrAmt + minAmt + secAmt).toFixed(2);
+        document.getElementById('calculateMsg').innerHTML = `Please bill ${client} $${total}.`;
+    }
+
     render() {
         return (
             <main>
@@ -51,8 +59,8 @@ class Calculator extends React.Component {
                 </section>
                 
                 <section className="form-buttons">
-                    <button id="submit">Calculate</button>
-                    <button id="reset">Reset</button>
+                    <CalculatorButtonsSubmit onClick={this.handleSubmit} />
+                    <CalculatorButtonsReset onClick={this.handleReset} />
                 </section>
                 
                 <section class="calculate">
