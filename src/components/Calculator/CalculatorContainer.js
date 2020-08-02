@@ -78,7 +78,8 @@ class CalculatorContainer extends React.Component {
             rate={this.state.rate}
             client={this.state.client}
             message={this.state.message}
-            onClick={this.handleSubmit}
+            onClickSubmit={this.handleSubmit}
+            onClickReset={this.handleReset}
             onChangeHours={this.handleUserInputHours}
             onChangeMinutes={this.handleUserInputMinutes}
             onChangeSeconds={this.handleUserInputSeconds}

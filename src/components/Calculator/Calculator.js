@@ -25,8 +25,8 @@ class Calculator extends React.Component {
                 </section>
                 
                 <section className="form-buttons">
-                    <button id="submit" onClick={this.props.onClick}>Calculate</button>
-                    <button id="reset" onClick={this.props.onClick}>Reset</button>
+                    <button id="submit" onClick={this.props.onClickSubmit}>Calculate</button>
+                    <button id="reset" onClick={this.props.onClickReset}>Reset</button>
                 </section>
                 
                 <section class="calculate">
