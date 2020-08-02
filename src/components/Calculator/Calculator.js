@@ -1,41 +1,7 @@
 import React from 'react';
 import './Calculator.css';
 
-class CalculatorButtonsSubmit extends React.Component {
-    render() {
-        return (<button id="submit" onClick={this.props.onClick}>Calculate</button>);
-    }
-}
-
-class CalculatorButtonsReset extends React.Component {
-    render() {
-        return (<button id="reset" onClick={this.props.onClick}>Reset</button>);
-    }
-}
-
 class Calculator extends React.Component {
-    handleReset() {
-        document.getElementById('hours').value = '';
-        document.getElementById('minutes').value = '';
-        document.getElementById('seconds').value = '';
-        document.getElementById('rate').value = '';
-        document.getElementById('client').value = '';
-        document.getElementById('calculateMsg').innerHTML = '';
-    }
-
-    handleSubmit() {
-        let hours = document.getElementById('hours').value;
-        let mins = document.getElementById('minutes').value;
-        let secs = document.getElementById('seconds').value;
-        let rate = document.getElementById('rate').value;
-        let client = document.getElementById('client').value;
-        const hrAmt = hours * rate;
-        const minAmt = (rate * mins) / 60;
-        const secAmt = (rate * secs) / 3600;
-        let total = (hrAmt + minAmt + secAmt).toFixed(2);
-        document.getElementById('calculateMsg').innerHTML = `Please bill ${client} $${total}.`;
-    }
-
     render() {
         return (
             <main>
@@ -46,25 +12,25 @@ class Calculator extends React.Component {
                 <section className="form-main">
                     <form>
                         <label for="hours">Hours</label>
-                            <input type="number" name="hours" id="hours" required />
+                            <input type="number" name="hours" id="hours" onChange={this.props.onChangeHours} value={this.props.hours} required />
                         <label for="minutes">Minutes</label>
-                            <input type="number" name="minutes" id="minutes" required />
+                            <input type="number" name="minutes" id="minutes" onChange={this.props.onChangeMinutes} value={this.props.minutes} required />
                         <label for="seconds">Seconds</label>
-                            <input type="number" name="seconds" id="seconds" required />
+                            <input type="number" name="seconds" id="seconds" onChange={this.props.onChangeSeconds} value={this.props.seconds} required />
                         <label for="rate">Hourly Rate ($)</label>
-                            <input type="number" name="rate" id="rate" required />
+                            <input type="number" name="rate" id="rate" onChange={this.props.onChangeRate} value={this.props.rate} required />
                         <label for="client">Client</label>
-                            <input type="text" name="client" id="client" required />
+                            <input type="text" name="client" id="client" onChange={this.props.onChangeClient} value={this.props.client} required />
                     </form>
                 </section>
                 
                 <section className="form-buttons">
-                    <CalculatorButtonsSubmit onClick={this.handleSubmit} />
-                    <CalculatorButtonsReset onClick={this.handleReset} />
+                    <button id="submit" onClick={this.props.onClick}>Calculate</button>
+                    <button id="reset" onClick={this.props.onClick}>Reset</button>
                 </section>
                 
                 <section class="calculate">
-                    <p id="calculateMsg"></p>
+                    <p id="calculateMsg">{this.props.message}</p>
                 </section>
             </main>);
     }
